@@ -12,7 +12,7 @@ GAME RULES:
 
 
 // Define score and player variables
-var scores, roundScore, activePlayer, dice;
+var scores, roundScore, activePlayer;
 
 scores = [0,0];
 roundScore = 0;
@@ -20,19 +20,45 @@ activePlayer = 0;
 
 
 // Generate a random number between 1 and 6
-dice = Math.floor(Math.random() * 6) + 1;
-console.log(dice);
+// dice = Math.floor(Math.random() * 6) + 1;
+// console.log(dice);
 
 
 // Change content of dice in current score
 //document.querySelector('#current-' + activePlayer).textContent = dice; // textContent for only text
-document.querySelector('#current-' + activePlayer).innerHTML = dice; // innerHTML for text and HTML
+//document.querySelector('#current-' + activePlayer).innerHTML = dice; // innerHTML for text and HTML
 
 
 // Read content of dice in current score
-var x = document.querySelector('#score-0').textContent;
-console.log(x);
+// var x = document.querySelector('#score-0').textContent;
+// console.log(x);
 
 
 // Change CSS of dice to hide it
 document.querySelector('.dice').style.display = 'none';
+
+// Set scores to 0 in the HTML
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
+
+
+// Apply functionality to roll button
+// Event listener that triggers an anonymous function
+document.querySelector('.btn-roll').addEventListener('click', function() {
+
+    // 1. Random number
+    var dice = Math.floor(Math.random() * 6) + 1;
+    document.querySelector('#current-' + activePlayer).innerHTML = dice;
+
+    // 2. Display result and change dice-x.png
+    var diceDOM = document.querySelector('.dice');
+    diceDOM.style.display = 'block';
+    diceDOM.src = 'dice-' + dice + '.png';
+
+    // 3. Update the score if the roll is NOT a 1
+
+});
+
+
