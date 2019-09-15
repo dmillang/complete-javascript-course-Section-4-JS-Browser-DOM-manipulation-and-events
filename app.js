@@ -14,9 +14,7 @@ GAME RULES:
 // Define score and player variables
 var scores, roundScore, activePlayer;
 
-scores = [0,0];
-roundScore = 0;
-activePlayer = 0;
+init();
 
 // Function to change player
 function nextPlayer() {
@@ -54,16 +52,6 @@ function nextPlayer() {
 // console.log(x);
 
 
-// Change CSS of dice to hide it
-document.querySelector('.dice').style.display = 'none';
-
-// Set scores to 0 in the HTML
-document.getElementById('score-0').textContent = '0';
-document.getElementById('score-1').textContent = '0';
-document.getElementById('current-0').textContent = '0';
-document.getElementById('current-1').textContent = '0';
-
-
 // Apply functionality to roll button
 // Event listener that triggers an anonymous function
 document.querySelector('.btn-roll').addEventListener('click', function() {
@@ -87,6 +75,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
 });
 
+
 // Apply functionality to hold button
 // Event listener that triggers an anonymous function
 document.querySelector('.btn-hold').addEventListener('click', function() {
@@ -107,3 +96,37 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
         nextPlayer();
     };
 });
+
+
+// Apply functionality to hold button
+// Event listener that triggers an anonymous function
+document.querySelector('.btn-new').addEventListener('click', init);
+
+function init() {
+    // Set scores to zero
+    scores = [0,0];
+    roundScore = 0;
+    activePlayer = 0;
+
+    // Change CSS of dice to hide it
+    document.querySelector('.dice').style.display = 'none';
+
+    // Set scores to 0 in the HTML
+    document.getElementById('score-0').textContent = '0';
+    document.getElementById('score-1').textContent = '0';
+    document.getElementById('current-0').textContent = '0';
+    document.getElementById('current-1').textContent = '0';
+
+    // Set names back to 'player x' after winning
+    document.getElementById('name-0').textContent = 'Player 1';
+    document.getElementById('name-1').textContent = 'Player 2';
+
+    // Remove winner class
+    document.querySelector('.player-0-panel').classList.remove('winner');
+    document.querySelector('.player-1-panel').classList.remove('winner');
+
+    // Remove active player + set player-0 as active player
+    document.querySelector('.player-0-panel').classList.remove('active');
+    document.querySelector('.player-1-panel').classList.remove('active');
+    document.querySelector('.player-0-panel').classList.add('active');
+};
