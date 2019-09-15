@@ -32,9 +32,13 @@
             <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
             <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
             
-            <img src="dice-5.png" alt="Dice" class="dice">
+            <input id="scoreToWin" type="text" placeholder="Score set to: 100" class="scoreToWin" onkeypress='validate(event)'>
+
+            <img id="dice-1" src="dice-5.png" alt="Dice" class="dice dice-1">
+            <img id="dice-2" src="dice-5.png" alt="Dice" class="dice dice-2">
         </div>
         
-        <script src="app.js"></script>
+        <!-- <script src="app.js"></script> -->
+        <script src="appChallenge.js"></script>
     </body>
 </html>

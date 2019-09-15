@@ -6,7 +6,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 .clearfix::after {
@@ -15,8 +14,13 @@
     clear: both;
 }
 
+/* Challange 3 */
+.dice-1 { top: 120px;}
+
+.dice-2 { top: 250px;}
+
 body {
-    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back.jpg);
+    background-image: linear-gradient(to top,#ee9ca7, #ffdde1);
     background-size: cover;
     background-position: center;
     font-family: Lato;
@@ -32,7 +36,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color: #f7f7f7;
     box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
@@ -66,25 +70,32 @@ body {
     text-align: center;
     font-size: 80px;
     font-weight: 100;
-    color: #EB4D4D;
+    color: #e46273;
     margin-bottom: 130px;
 }
 
-.active { background-color: #f7f7f7; }
+.active { background-color: #fff; }
 .active .player-name { font-weight: 300; }
 
-.active .player-name::after {
+.active .player-name::after,
+.active .player-name::before  {
     content: "\2022";
     font-size: 47px;
     position: absolute;
-    color: #EB4D4D;
+    color: #e46273;
     top: -7px;
+}
+
+.active .player-name::after {
     right: 10px;
-    
+}
+
+.active .player-name::before  {
+    left: 10px;
 }
 
 .player-current-box {
-    background-color: #EB4D4D;
+    background-color: #e46273;
     color: #fff;
     width: 40%;
     margin: 0 auto;
@@ -127,7 +138,7 @@ button:focus {
 }
 
 i {
-    color: #EB4D4D;
+    color: #e46273;
     display: inline-block;
     margin-right: 15px;
     font-size: 32px;
@@ -141,14 +152,40 @@ i {
 .btn-roll { top: 403px;}
 .btn-hold { top: 467px;}
 
+/* Challange 2 */
+.scoreToWin::placeholder {
+    color: #e4627385;
+    opacity: 0.85;
+}
+
+.scoreToWin {
+    position: absolute;
+    top: 92%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    color: #555;
+    border: 1px solid #aaa;
+    padding: 10px;
+    font-family: Lato;
+    font-size: 21px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    background-color: #fff;
+}
+
+.scoreToWin:focus {
+    outline: none;
+}
+
 .dice {
     position: absolute;
     left: 50%;
-    top: 178px;
     transform: translateX(-50%);
     height: 100px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
 }
 
 .winner { background-color: #f7f7f7; }
-.winner .player-name { font-weight: 300; color: #EB4D4D; }
+.winner .player-name { font-weight: 300; color: #e46273; }
